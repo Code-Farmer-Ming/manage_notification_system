@@ -1,55 +1,89 @@
 <template>
 <div>
+  <div v-show="send_status=='success'" class="alert alert-success alert-dismissible" role="alert">
+   send success.
+</div>
   <h1 class="page-header">New</h1>
   <div class="row">
-    <div class="col-xs-12 col-sm-4">
+    <div class="col-xs-12 col-sm-12">
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" v-bind:class="{active: tab=='by_region'}"><a href='#' v-on:click.prevent="tab = 'by_region'">By Region</a></li>
+        <li role="presentation" v-bind:class="{active: tab=='by_member'}"><a href='#'   v-on:click.prevent="tab = 'by_member'">By Member</a></li>
+      </ul>
+      <br>
+      <region-msg-form v-bind:msg='msg' v-on:onsave='regionSave' v-show="tab=='by_region'"></region-msg-form>
 
-      <new-region-msg v-bind:msg='msg' v-on:onsave='preview'  ></new-region-msg>
+      <member-msg-form v-bind:msg='msg' v-show="tab=='by_member'" v-on:onsave='memberSave'></member-msg-form>
     </div>
+
   </div>
 </div>
 </template>
 
 <script>
-import NewRegionMsg from './new_region_msg'
+import RegionMsgForm from './region_msg_form'
+import MemberMsgForm from './member_msg_form'
 export default {
 
   data() {
     return {
-
+      send_status: 'normal',
+      tab: 'by_region',
       msg: {
+        text: '',
+        link: '',
+        scheduled_at: null,
         condition: {
           language: 'en',
           cities: [],
-          levels: []
-        },
-        scheduled_at: null
-      },
-      membersMsg:{
-        condition: {
-          member_ids: []
+          levels: [],
+          member_ids: ''
         }
       }
     }
   },
   methods: {
-    save() {
-      console.log('submit');
-      this.isPreview = true
-      this.msg = {
-        condition: {
-          language: 'en',
-          cities: [],
-          levels: []
+    memberSave(){
+      this.$http.post('http://apns.diningcity.asia/msgs/members',{msg: this.msg}).then((response)=>{
+      this.send_status ='success'
+      this.msg ={
+          text: '',
+          link: '',
+          scheduled_at: null,
+          condition: {
+            language: 'en',
+            cities: [],
+            levels: [],
+            member_ids: ''
+          }
         }
-      }
+      },(error)=>{
+        console.log(error)
+      })
     },
-    preview() {
-      this.isPreview = true
-    }
+    regionSave() {
+      this.$http.post('http://apns.diningcity.asia/msgs/regions',{msg: this.msg}).then((response)=>{
+      this.send_status ='success'
+      this.msg ={
+          text: '',
+          link: '',
+          scheduled_at: null,
+          condition: {
+            language: 'en',
+            cities: [],
+            levels: [],
+            member_ids: ''
+          }
+        }
+      },(error)=>{
+        console.log(error)
+      })
+    },
+
   },
   components: {
-    NewRegionMsg
+    RegionMsgForm,
+    MemberMsgForm
   }
 }
 </script>
