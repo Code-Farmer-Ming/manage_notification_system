@@ -7,22 +7,31 @@
       <thead>
         <tr>
           <th>Text</th>
-          <th>Date Sent</th>
-          <th>Type</th>
-          <th>Users</th>
+          <th class="col-md-2">Date Sent</th>
+          <th class="col-md-2">Type</th>
+          <th class="col-md-2">Users</th>
         </tr>
       </thead>
       <tbody>
 
         <tr v-for='item in histories'>
           <td>{{item.text}}</td>
-          <td>{{item.send_at}}</td>
-          <td>{{item.condition}} {{item.scheduled_at}}</td>
-          <td>{{item.operator}}</td>
+          <td class="col-md-3" >{{item.send_at}}</td>
+          <td class="col-md-3" style="word-break: break-all;">{{item.condition}} {{item.scheduled_at}}</td>
+          <td class="col-md-2">{{item.operator}}</td>
         </tr>
 
       </tbody>
+      <tfoot>
+
+      </tfoot>
     </table>
+    <nav>
+  <ul class="pager">
+    <li class="previous"><a href="#" v-on:click.prevent="prePage()">&larr; Newer</a></li>
+    <li class="next"><a href="#" v-on:click.prevent="nextPage()">Older &rarr;</a></li>
+  </ul>
+</nav>
   </div>
 </div>
 </template>
@@ -37,16 +46,23 @@ export default {
 
   data() {
     return {
-        histories: []
-
+        histories: [],
+        page: 1
     }
   },
   methods: {
     getHistory () {
-      this.$http.get('http://apns.diningcity.asia/msgs/history').then((response)=>{
+      this.$http.get('http://apns.diningcity.asia/msgs/history', {params: {page: this.page}}).then((response)=>{
         this.histories =  response.data
       })
-
+    },
+    nextPage () {
+      this.page += 1
+      this.getHistory()
+    },
+    prePage () {
+      this.page -= 1
+      this.getHistory()
     }
   }
 }
