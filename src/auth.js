@@ -8,9 +8,8 @@ export default {
            localStorage.setItem('id_token', response.body.token)
            Vue.http.headers.common['X-Authorization'] = response.body.token
            return 'ok'
-         }, (error) => {
-
-           return error.body.msg
+         }, (responseError) => {
+           return responseError.body.msg
          })
     },
 
