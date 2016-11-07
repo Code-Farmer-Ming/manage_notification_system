@@ -1,7 +1,12 @@
 <template>
 <div >
   <h1 class="page-header">History</h1>
-
+  <nav>
+<ul class="pager">
+  <li class="previous"><a href="#" v-on:click.prevent="prePage()">&larr; Newer</a></li>
+  <li class="next"><a href="#" v-on:click.prevent="nextPage()">Older &rarr;</a></li>
+</ul>
+</nav>
   <div class="table-responsive">
     <table class="table table-striped">
       <thead>

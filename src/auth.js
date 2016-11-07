@@ -19,7 +19,7 @@ export default {
       Vue.http.headers.common['X-Authorization'] = ''
     },
     checkAuth() {
-      Vue.http.headers.common['X-Authorization'] = localStorage.getItem('id_token')
+      Vue.http.headers.common['X-Authorization'] = localStorage.getItem('id_token') || ''
       return localStorage.getItem('id_token')!=null
     }
 
