@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     memberSave(){
-      this.$http.post('http://apns.diningcity.asia/msgs/members',{msg: this.msg}).then((response)=>{
+      this.$http.post('http://apns.diningcity.asia/msgs/members',this.get_msg).then((response)=>{
       this.send_status ='success'
       this.msg ={
           text: '',
@@ -62,7 +62,8 @@ export default {
       })
     },
     regionSave() {
-      this.$http.post('http://apns.diningcity.asia/msgs/regions',{msg: this.msg}).then((response)=>{
+      debugger
+      this.$http.post('http://apns.diningcity.asia/msgs/regions',this.get_msg).then((response)=>{
       this.send_status ='success'
       this.msg ={
           text: '',
@@ -79,7 +80,15 @@ export default {
         console.log(error)
       })
     },
-
+  },
+  computed: {
+    get_msg(){
+        let new_msg  = {msg: {}}
+        new_msg.msg = JSON.parse(JSON.stringify(this.msg))
+        new_msg.msg.condition.cities = new_msg.msg.condition.cities.join()
+        new_msg.msg.condition.levels = new_msg.msg.condition.levels.join()
+        return new_msg
+    }
   },
   components: {
     RegionMsgForm,
