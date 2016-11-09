@@ -62,7 +62,6 @@ export default {
       })
     },
     regionSave() {
-      debugger
       this.$http.post('http://apns.diningcity.asia/msgs/regions',this.get_msg).then((response)=>{
       this.send_status ='success'
       this.msg ={
