@@ -65,9 +65,6 @@ export default {
         this.nextPageNumber = response.headers.get('next_page')
         this.prePageNumber = response.headers.get('prev_page')
         this.totalPage = response.headers.get('total_pages')
-        debugger
-        console.log(response.headers.get('total_count'))
-
       })
     },
     nextPage () {
