@@ -22,30 +22,24 @@ const router = new VueRouter({
       path: '/login',
       component: Login,
       auth: false
-    },
-    {
+    }, {
       path: '',
       component: Home,
       meta: {
         requiresAuth: true
       },
-      children: [
-        {
-          path: '',
-          component: Dashboard
-        },
-        {
-          path: 'new',
-          component: New
-        },
-        {
-          path: 'history',
-          component: History
-        }
-      ]
+      children: [{
+        path: '',
+        component: Dashboard
+      }, {
+        path: 'new',
+        component: New
+      }, {
+        path: 'history',
+        component: History
+      }]
 
-    }
-    ]
+    }]
   })
   // authentication service
 
@@ -65,7 +59,9 @@ new Vue({
   router: router,
   el: '#app',
   template: '<App/>',
-  data: {isLogin: true},
+  data: {
+    isLogin: true
+  },
   components: {
     App
   }

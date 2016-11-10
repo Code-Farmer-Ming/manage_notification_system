@@ -48,7 +48,7 @@
         <div class="col-xs-12">
           <div class="form-group">
             <label>Enter App Path (Optional)</label>
-            <input type="text" name="link"   class="form-control"  v-model="msg.link">
+            <input type="text" name="link" class="form-control" v-model="msg.link">
           </div>
         </div>
       </div>
@@ -114,9 +114,10 @@ export default {
   data() {
     return {
       cities: ['shanghai', 'beijing', 'guangzhou', 'shenzhen', 'chengdu', 'hangzhou',
-      'suzhou', 'chongqing', 'xiamen', 'qingdao', 'wuhan', 'xi\'an','zhengzhou','hongkong',
-      'bangkok','macau','pattaya','phuket','chiangmai','huahin','kohsamui'],
-      levels: ['basic','jade', 'gold','diamond'],
+        'suzhou', 'chongqing', 'xiamen', 'qingdao', 'wuhan', 'xi\'an', 'zhengzhou', 'hongkong',
+        'bangkok', 'macau', 'pattaya', 'phuket', 'chiangmai', 'huahin', 'kohsamui'
+      ],
+      levels: ['basic', 'jade', 'gold', 'diamond'],
       languages: ['en', 'zh', 'th'],
       linkTemplates: ['', '/sites/wee', '/sites/event'],
       send_to: 'regions',

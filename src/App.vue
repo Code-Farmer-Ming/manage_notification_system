@@ -1,14 +1,14 @@
 <template>
-  <div v-bind:class="bodyClass" class="myBody">
-    <router-view>
-    </router-view>
-  </div>
+<div v-bind:class="bodyClass" class="myBody">
+  <router-view>
+  </router-view>
+</div>
 </template>
 <script>
 export default {
   computed: {
-    bodyClass(){
-      return this.$route.path =='/login' ? 'loginBody' : ''
+    bodyClass() {
+      return this.$route.path == '/login' ? 'loginBody' : ''
     }
   },
 }

@@ -13,7 +13,6 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-
               <li><a v-on:click="logout()" href="#">Logout</a></li>
             </ul>
           </div>

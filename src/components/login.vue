@@ -37,19 +37,20 @@ export default {
     }
   },
   methods: {
-    login () {
+    login() {
       let router = this.$router
       Auth.login(this.user).then((response) => {
 
-        if (response=='ok'){
-          router.push({ path: '/' })
+        if (response == 'ok') {
+          router.push({
+            path: '/'
+          })
 
           console.log(response)
-        }
-        else{
+        } else {
           this.error = response
         }
-      } )
+      })
     }
   }
 }
