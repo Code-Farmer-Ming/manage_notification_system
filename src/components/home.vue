@@ -23,7 +23,6 @@
         <div class="row">
           <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-              <li><router-link to="/" active-class='active' exact><i class="glyphicon glyphicon-dashboard"></i> Dashboard</router-link></li>
               <li><router-link to="new" active-class='active'><i class="glyphicon glyphicon-plus"></i> New Notification</router-link></li>
               <li><router-link to="history" active-class='active'><i class="glyphicon glyphicon-list-alt"></i> History</router-link></li>
               <!-- <li><a href="settings.html"><i class="glyphicon glyphicon-cog"></i> Settings</a></li> -->

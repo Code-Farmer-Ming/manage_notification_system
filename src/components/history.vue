@@ -3,8 +3,8 @@
   <h1 class="page-header">History</h1>
   <nav>
 <ul class="pager">
-  <li class="previous"><a href="#" v-on:click.prevent="prePage()">&larr; Newer</a></li>
-  <li class="next"><a href="#" v-on:click.prevent="nextPage()">Older &rarr;</a></li>
+  <li class="previous" v-bind:class="{disabled: page==1}"><a href="#" v-on:click.prevent="prePage()" >&larr; Newer</a></li>
+  <li class="next" v-bind:class="{disabled: page==totalPage}"><a href="#" v-on:click.prevent="nextPage()">Older &rarr;</a></li>
 </ul>
 </nav>
   <div class="table-responsive">
@@ -33,8 +33,8 @@
     </table>
     <nav>
   <ul class="pager">
-    <li class="previous"><a href="#" v-on:click.prevent="prePage()">&larr; Newer</a></li>
-    <li class="next"><a href="#" v-on:click.prevent="nextPage()">Older &rarr;</a></li>
+    <li class="previous" v-bind:class="{disabled: page==1}"><a href="#" v-on:click.prevent="prePage()">&larr; Newer</a></li>
+    <li class="next" v-bind:class="{disabled: page==totalPage}"><a href="#" v-on:click.prevent="nextPage()"  >Older &rarr;</a></li>
   </ul>
 </nav>
   </div>
@@ -52,21 +52,30 @@ export default {
   data() {
     return {
         histories: [],
-        page: 1
+        page: 1,
+        nextPageNumber:1,
+        prePageNumber: 1,
+        totalPage: 1
     }
   },
   methods: {
     getHistory () {
-      this.$http.get('http://apns.diningcity.asia/msgs/history', {params: {page: this.page}}).then((response)=>{
+      this.$http.get('msgs/history', {params: {page: this.page},credentials: true}).then((response)=>{
         this.histories =  response.data
+        this.nextPageNumber = response.headers.get('next_page')
+        this.prePageNumber = response.headers.get('prev_page')
+        this.totalPage = response.headers.get('total_pages')
+        debugger
+        console.log(response.headers.get('total_count'))
+
       })
     },
     nextPage () {
-      this.page += 1
+      this.page = this.nextPageNumber
       this.getHistory()
     },
     prePage () {
-      this.page -= 1
+      this.page = this.prePageNumber
       this.getHistory()
     }
   }

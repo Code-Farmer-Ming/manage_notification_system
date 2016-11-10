@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     memberSave(){
-      this.$http.post('http://apns.diningcity.asia/msgs/members',this.get_msg).then((response)=>{
+      this.$http.post('msgs/members',this.get_msg).then((response)=>{
       this.send_status ='success'
       this.msg ={
           text: '',

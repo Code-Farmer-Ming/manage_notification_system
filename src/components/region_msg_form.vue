@@ -114,7 +114,7 @@ export default {
   data() {
     return {
       cities: ['shanghai', 'beijing', 'guangzhou', 'shenzhen', 'chengdu', 'hangzhou',
-      'suzhou', 'chongqing', 'xiamen', 'qingdao', 'wuhan', 'xi\'an','zhengzhou','kongkong',
+      'suzhou', 'chongqing', 'xiamen', 'qingdao', 'wuhan', 'xi\'an','zhengzhou','hongkong',
       'bangkok','macau','pattaya','phuket','chiangmai','huahin','kohsamui'],
       levels: ['basic','jade', 'gold','diamond'],
       languages: ['en', 'zh', 'th'],

@@ -16,6 +16,8 @@ Vue.use(BootstrapVue)
 Vue.use(VueRouter)
 Vue.use(VueResource)
 
+Vue.http.options.root = 'http://apns.diningcity.asia'
+
 const router = new VueRouter({
     routes: [{
       path: '/login',
@@ -31,7 +33,7 @@ const router = new VueRouter({
       children: [
         {
           path: '',
-          component: Dashboard
+          redirect: '/new'
         },
         {
           path: 'new',

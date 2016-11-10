@@ -4,7 +4,7 @@ export default {
     // Send a request to the login URL and save the returned JWT
     login(user) {
 
-         return Vue.http.post('http://apns.diningcity.asia/sessions', user).then((response) => {
+         return Vue.http.post('sessions', user).then((response) => {
            localStorage.setItem('id_token', response.body.token)
            Vue.http.headers.common['X-Authorization'] = response.body.token
            return 'ok'

@@ -79,17 +79,7 @@
 
 <script>
 export default {
-
-  data() {
-    return {
-      cities: ['shanghai', 'beijing', 'guangzhou', 'shenzhen', 'chengdu', 'hangzhou', 'suzhou', 'chongqing', 'xiamen', 'qingdao', 'wuhan', 'XI\'an'],
-      levels: ['basic', 'gold'],
-      languages: ['en', 'zh', 'th'],
-      linkTemplates: ['', '/sites/wee', '/sites/event'],
-      send_to: 'regions',
-
-    }
-  },
+ 
   props: ['msg'],
   methods: {
     save() {
