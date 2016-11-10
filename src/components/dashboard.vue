@@ -6,32 +6,21 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Title</th>
-          <th>Type</th>
-          <th>Scheduled Date</th>
-          <th>Actions</th>
+          <th>Text</th>
+          <th class="col-md-2">Scheduled Date</th>
+          <th class="col-md-2">Condition</th>
+          <th class="col-md-2">Sender</th>
+          <th class="col-md-2">Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>191</td>
-          <td>Weekend Promo August 5th</td>
-          <td>weekend-push</td>
-          <td>5 Aug, 21:00</td>
+        <tr v-for='item in schedules'>
+          <td>{{item.text}}</td>
+          <td class="col-md-3" >{{item.scheduled_at}}</td>
+          <td class="col-md-3" style="word-break: break-all;">{{item.condition}}</td>
+          <td class="col-md-2">{{item.operator}}</td>
           <td>
-            <a href="" class="btn"><i class="glyphicon glyphicon-pencil"></i></a>
-            <a href="" class="btn"><i class="glyphicon glyphicon-trash"></i></a>
-          </td>
-        </tr>
-        <tr>
-          <td>192</td>
-          <td>Best Brunches in Town</td>
-          <td>free-text</td>
-          <td>6 Aug, 21:00</td>
-          <td>
-            <a href="" class="btn"><i class="glyphicon glyphicon-pencil"></i></a>
-            <a href="" class="btn"><i class="glyphicon glyphicon-trash"></i></a>
+              <a href="#" v-on:click.prevent="removeMsg(item)" ><i class="glyphicon glyphicon-trash"></i></a>
           </td>
         </tr>
       </tbody>
@@ -43,69 +32,18 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Title</th>
-          <th>Type</th>
-          <th>Date Sent</th>
-          <th>Users</th>
+          <th>Text</th>
+          <th class="col-md-2">Date Sent</th>
+          <th class="col-md-2">Condition</th>
+          <th class="col-md-2">Sender</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>187</td>
-          <td>Reservation Reminder for Fred Lin</td>
-          <td>Reservation Reminder</td>
-          <td>7 August 2016, 11:00</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <td>185</td>
-          <td>Restaurant Week Prebooking Start</td>
-          <td>Event Prebooking Start</td>
-          <td>5 August 2016, 11:00</td>
-          <td>51251</td>
-        </tr>
-        <tr>
-          <td>187</td>
-          <td>Reservation Reminder for Fred Lin</td>
-          <td>Reservation Reminder</td>
-          <td>7 August 2016, 11:00</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <td>185</td>
-          <td>Restaurant Week Prebooking Start</td>
-          <td>Event Prebooking Start</td>
-          <td>5 August 2016, 11:00</td>
-          <td>51251</td>
-        </tr>
-        <tr>
-          <td>187</td>
-          <td>Reservation Reminder for Fred Lin</td>
-          <td>Reservation Reminder</td>
-          <td>7 August 2016, 11:00</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <td>185</td>
-          <td>Restaurant Week Prebooking Start</td>
-          <td>Event Prebooking Start</td>
-          <td>5 August 2016, 11:00</td>
-          <td>51251</td>
-        </tr>
-        <tr>
-          <td>187</td>
-          <td>Reservation Reminder for Fred Lin</td>
-          <td>Reservation Reminder</td>
-          <td>7 August 2016, 11:00</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <td>185</td>
-          <td>Restaurant Week Prebooking Start</td>
-          <td>Event Prebooking Start</td>
-          <td>5 August 2016, 11:00</td>
-          <td>51251</td>
+        <tr v-for='item in recents'>
+          <td>{{item.text}}</td>
+          <td class="col-md-3" >{{item.send_at}}</td>
+          <td class="col-md-3" style="word-break: break-all;">{{item.condition}}</td>
+          <td class="col-md-2">{{item.operator}}</td>
         </tr>
       </tbody>
     </table>
@@ -117,35 +55,37 @@
 import Vue from 'vue'
 import Auth from '../auth.js'
 export default {
-
+  mounted(){
+    this.getRecent()
+    this.getSchedules()
+  },
   data() {
     return {
-      error: null,
-      isLogin: true,
-      user: {
-        user: {
-          name: '',
-          pwd: ''
-        }
-      }
+      schedules: [],
+      recents: []
     }
   },
   methods: {
-    login () {
-      let router = this.$router
-      Auth.login(this.user).then((response) => {
-
-        if (response=='ok'){
-          router.push({ path: '/' })
-
-          console.log(response)
-        }
-        else{
-          this.error = response
-        }
-      } )
+    getRecent () {
+      this.$http.get('msgs/history').then((response)=>{
+        this.recents =  response.data
+      })
+  },
+  getSchedules(){
+    this.$http.get('msgs/schedules').then((response)=>{
+      this.schedules =  response.data
+    })
+  },
+    removeMsg(msg) {
+      if (confirm("Are U Sure?"))
+       {
+         this.$http.delete('msgs/'+msg.id).then((response)=>{
+           this.getSchedules()
+         })
+       }
     }
-  }
+
+}
 }
 </script>
 

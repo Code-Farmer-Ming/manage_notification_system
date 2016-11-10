@@ -13,8 +13,8 @@
         <tr>
           <th>Text</th>
           <th class="col-md-2">Date Sent</th>
-          <th class="col-md-2">Type</th>
-          <th class="col-md-2">Users</th>
+          <th class="col-md-2">Condition</th>
+          <th class="col-md-2">Sender</th>
         </tr>
       </thead>
       <tbody>
@@ -22,7 +22,7 @@
         <tr v-for='item in histories'>
           <td>{{item.text}}</td>
           <td class="col-md-3" >{{item.send_at}}</td>
-          <td class="col-md-3" style="word-break: break-all;">{{item.condition}} {{item.scheduled_at}}</td>
+          <td class="col-md-3" style="word-break: break-all;">{{item.condition}}</td>
           <td class="col-md-2">{{item.operator}}</td>
         </tr>
 

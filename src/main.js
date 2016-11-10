@@ -15,7 +15,6 @@ import History from './components/history'
 Vue.use(BootstrapVue)
 Vue.use(VueRouter)
 Vue.use(VueResource)
-
 Vue.http.options.root = 'http://apns.diningcity.asia'
 
 const router = new VueRouter({
@@ -33,7 +32,7 @@ const router = new VueRouter({
       children: [
         {
           path: '',
-          redirect: '/new'
+          component: Dashboard
         },
         {
           path: 'new',
