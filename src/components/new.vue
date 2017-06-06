@@ -86,6 +86,7 @@ export default {
         new_msg.msg = JSON.parse(JSON.stringify(this.msg))
         new_msg.msg.condition.cities = new_msg.msg.condition.cities.join()
         new_msg.msg.condition.levels = new_msg.msg.condition.levels.join()
+        console.log(new_msg)
         return new_msg
     }
   },

@@ -35,7 +35,14 @@
           </div>
         </div>
       </div>
-
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label>Title  (Optional)</label>
+            <input class='form-control'    v-model="msg.title" name="content_en"></textarea>
+          </div>
+        </div>
+      </div>
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
@@ -94,6 +101,9 @@
     </p>
     <p>
       <label for="">Language</label> {{msg.condition.language}}
+    </p>
+    <p>
+      <label for="">Title</label>&nbsp;{{msg.title || 'Diningcity'}}
     </p>
     <p>
       <label for="">Text</label>&nbsp;{{msg.text}}

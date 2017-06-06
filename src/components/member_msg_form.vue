@@ -13,6 +13,14 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
+            <label>Title (Optional)</label>
+            <input  type="text" class='form-control'  v-model="msg.title">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
             <label>Text</label>
             <textarea class='form-control' required="required" style='height: 10em' v-model="msg.text" name="content_en"></textarea>
           </div>
@@ -65,6 +73,9 @@
       <label for="">To</label> {{msg.condition.member_ids}}
     </p>
     <p>
+      <label for="">Title</label>&nbsp;{{msg.title || 'Diningcity'}}
+    </p>
+    <p>
       <label for="">Text</label>&nbsp;{{msg.text}}
     </p>
     <p v-show='msg.link'>
@@ -79,7 +90,7 @@
 
 <script>
 export default {
- 
+
   props: ['msg'],
   methods: {
     save() {
