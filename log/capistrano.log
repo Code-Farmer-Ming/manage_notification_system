@@ -1,0 +1,31 @@
+# Logfile created on 2017-09-29 10:50:40 +0800 by logger.rb/53141
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-09-29 10:50:40 +0800 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [e5abcc0d] Running /usr/bin/env mkdir -p /tmp as deploy@dcpns.diningcity.asia
+ DEBUG [e5abcc0d] Command: /usr/bin/env mkdir -p /tmp
+  INFO [e5abcc0d] Finished in 0.838 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-mange_notifications_system-production-marketing1.sh 0.0%
+  INFO Uploading /tmp/git-ssh-mange_notifications_system-production-marketing1.sh 100.0%
+  INFO [15473a76] Running /usr/bin/env chmod 700 /tmp/git-ssh-mange_notifications_system-production-marketing1.sh as deploy@dcpns.diningcity.asia
+ DEBUG [15473a76] Command: /usr/bin/env chmod 700 /tmp/git-ssh-mange_notifications_system-production-marketing1.sh
+  INFO [15473a76] Finished in 0.392 seconds with exit status 0 (successful).
+  INFO [a900d4f5] Running /usr/bin/env git ls-remote git@github.com:tomorrownull/mange_notifications_system.git HEAD as deploy@dcpns.diningcity.asia
+ DEBUG [a900d4f5] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-mange_notifications_system-production-marketing1.sh" ; /usr/bin/env git ls-remote git@github.com:tomorrownull/mange_notifications_system.git HEAD )
+ DEBUG [a900d4f5] 	163a592242e87e5a1f5348d0c68a0626098e4289	HEAD
+  INFO [a900d4f5] Finished in 4.813 seconds with exit status 0 (successful).
+  INFO [f23b6bca] Running /usr/bin/env mkdir -p /home/deploy/mange_notifications_system/shared /home/deploy/mange_notifications_system/releases as deploy@dcpns.diningcity.asia
+ DEBUG [f23b6bca] Command: /usr/bin/env mkdir -p /home/deploy/mange_notifications_system/shared /home/deploy/mange_notifications_system/releases
+  INFO [f23b6bca] Finished in 0.304 seconds with exit status 0 (successful).
+ DEBUG [3c91444c] Running [ -f /home/deploy/mange_notifications_system/current/REVISION ] as deploy@dcpns.diningcity.asia
+ DEBUG [3c91444c] Command: [ -f /home/deploy/mange_notifications_system/current/REVISION ]
+ DEBUG [3c91444c] Finished in 0.304 seconds with exit status 1 (failed).
+ DEBUG [e351dfb9] Running [ -f /home/deploy/mange_notifications_system/repo/HEAD ] as deploy@dcpns.diningcity.asia
+ DEBUG [e351dfb9] Command: [ -f /home/deploy/mange_notifications_system/repo/HEAD ]
+ DEBUG [e351dfb9] Finished in 0.305 seconds with exit status 1 (failed).
+ DEBUG [77c603bf] Running if test ! -d /home/deploy/mange_notifications_system; then echo "Directory does not exist '/home/deploy/mange_notifications_system'" 1>&2; false; fi as deploy@dcpns.diningcity.asia
+ DEBUG [77c603bf] Command: if test ! -d /home/deploy/mange_notifications_system; then echo "Directory does not exist '/home/deploy/mange_notifications_system'" 1>&2; false; fi
+ DEBUG [77c603bf] Finished in 0.307 seconds with exit status 0 (successful).
+  INFO [4d9e83f0] Running /usr/bin/env git clone --mirror git@github.com:tomorrownull/mange_notifications_system.git /home/deploy/mange_notifications_system/repo as deploy@dcpns.diningcity.asia
+ DEBUG [4d9e83f0] Command: cd /home/deploy/mange_notifications_system && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-mange_notifications_system-production-marketing1.sh" ; /usr/bin/env git clone --mirror git@github.com:tomorrownull/mange_notifications_system.git /home/deploy/mange_notifications_system/repo )
+ DEBUG [4d9e83f0] 	Initialized empty Git repository in /home/deploy/mange_notifications_system/repo/
