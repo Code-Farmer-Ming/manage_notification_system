@@ -29,10 +29,35 @@ export default {
     return {
       send_status: 'normal',
       tab: 'by_region',
-      msg: {
+      msg: {}
+    }
+  },
+  created() {
+    this.resetData()
+  },
+  methods: {
+    memberSave(){
+      this.$http.post('msgs/members',this.get_msg).then((response)=>{
+      this.send_status ='success'
+      this.msg.resetData()
+      },(error)=>{
+        console.log(error)
+      })
+    },
+    regionSave() {
+      this.$http.post('http://apns.diningcity.asia/msgs/regions',this.get_msg).then((response)=>{
+      this.send_status ='success'
+      this.msg.resetData()
+      },(error)=>{
+        console.log(error)
+      })
+    },
+    resetData(){
+      this.msg = {
         text: '',
         link: '',
         scheduled_at: null,
+        type: 'app',
         condition: {
           language: 'en',
           cities: [],
@@ -41,44 +66,6 @@ export default {
         }
       }
     }
-  },
-  methods: {
-    memberSave(){
-      this.$http.post('msgs/members',this.get_msg).then((response)=>{
-      this.send_status ='success'
-      this.msg ={
-          text: '',
-          link: '',
-          scheduled_at: null,
-          condition: {
-            language: 'en',
-            cities: [],
-            levels: [],
-            member_ids: ''
-          }
-        }
-      },(error)=>{
-        console.log(error)
-      })
-    },
-    regionSave() {
-      this.$http.post('http://apns.diningcity.asia/msgs/regions',this.get_msg).then((response)=>{
-      this.send_status ='success'
-      this.msg ={
-          text: '',
-          link: '',
-          scheduled_at: null,
-          condition: {
-            language: 'en',
-            cities: [],
-            levels: [],
-            member_ids: ''
-          }
-        }
-      },(error)=>{
-        console.log(error)
-      })
-    },
   },
   computed: {
     get_msg(){

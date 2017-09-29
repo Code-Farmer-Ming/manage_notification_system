@@ -59,6 +59,18 @@
           </div>
         </div>
       </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label>Type</label>
+            <select  class="form-control" v-model="msg.type">
+              <option value="app">app</option>
+              <option value="inner_msg">Inner Msg</option>
+            </select>
+          </div>
+        </div>
+      </div>
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
@@ -110,6 +122,10 @@
     </p>
     <p v-show='msg.link'>
       <label for="">Link</label> {{msg.link}}
+    </p>
+
+    <p>
+      <label for="">Type</label>&nbsp;{{msg.type}}
     </p>
     <p v-show='msg.scheduled_at'>
       <label for="">schedule</label> {{msg.scheduled_at}}

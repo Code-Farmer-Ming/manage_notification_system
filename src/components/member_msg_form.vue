@@ -38,6 +38,17 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
+            <label>Type</label>
+            <select  class="form-control" v-model="msg.type">
+              <option value="app">app</option>
+              <option value="inner_msg">Inner Msg</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
             <label>When to send this Notification?</label>
             <br class="clear" />
             <label class="radio-inline">
