@@ -39,7 +39,7 @@
         <div class="col-xs-12">
           <div class="form-group">
             <label>Type</label>
-            <select  class="form-control" v-model="msg.type">
+            <select  class="form-control" v-model="msg.channel">
               <option value="app">app</option>
               <option value="inner_msg">Inner Msg</option>
             </select>

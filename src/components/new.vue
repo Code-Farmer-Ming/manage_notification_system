@@ -57,7 +57,7 @@ export default {
         text: '',
         link: '',
         scheduled_at: null,
-        type: 'app',
+        channel: 'app',
         condition: {
           language: 'en',
           cities: [],
