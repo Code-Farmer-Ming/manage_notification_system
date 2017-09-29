@@ -1,8 +1,8 @@
 # config valid only for current version of Capistrano
 #lock "3.8.2"
 
-set :application, "mange_notifications_system"
-set :repo_url, "git@github.com:tomorrownull/manage_notifications_system.git"
+set :application, "manage_notification_system"
+set :repo_url, "git@github.com:tomorrownull/manage_notification_system.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
