@@ -39,7 +39,7 @@ export default {
     memberSave(){
       this.$http.post('msgs/members',this.get_msg).then((response)=>{
       this.send_status ='success'
-      this.msg.resetData()
+      this.resetData()
       },(error)=>{
         console.log(error)
       })
@@ -47,7 +47,7 @@ export default {
     regionSave() {
       this.$http.post('http://apns.diningcity.asia/msgs/regions',this.get_msg).then((response)=>{
       this.send_status ='success'
-      this.msg.resetData()
+      this.resetData()
       },(error)=>{
         console.log(error)
       })

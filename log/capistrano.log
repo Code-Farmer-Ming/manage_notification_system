@@ -96,3 +96,100 @@
   INFO [0a92bd7d] Running /usr/bin/env echo "Branch master (at 8f1c5cef7b10ad11e18615824fb8c4637e31a7b0) deployed as release 20170929030647 by marketing1" >> /home/deploy/manage_notification_system/revisions.log as deploy@dcpns.diningcity.asia
  DEBUG [0a92bd7d] Command: cd /home/deploy/manage_notification_system/releases && /usr/bin/env echo "Branch master (at 8f1c5cef7b10ad11e18615824fb8c4637e31a7b0) deployed as release 20170929030647 by marketing1" >> /home/deploy/manage_notification_system/revisions.log
   INFO [0a92bd7d] Finished in 0.405 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-09-29 14:04:17 +0800 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [807bed9d] Running /usr/bin/env mkdir -p /tmp as deploy@dcpns.diningcity.asia
+ DEBUG [807bed9d] Command: /usr/bin/env mkdir -p /tmp
+  INFO [807bed9d] Finished in 1.687 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-manage_notification_system-production-marketing1.sh 0.0%
+  INFO Uploading /tmp/git-ssh-manage_notification_system-production-marketing1.sh 100.0%
+  INFO [4f4f9d87] Running /usr/bin/env chmod 700 /tmp/git-ssh-manage_notification_system-production-marketing1.sh as deploy@dcpns.diningcity.asia
+ DEBUG [4f4f9d87] Command: /usr/bin/env chmod 700 /tmp/git-ssh-manage_notification_system-production-marketing1.sh
+  INFO [4f4f9d87] Finished in 0.232 seconds with exit status 0 (successful).
+  INFO [b8243587] Running /usr/bin/env git ls-remote git@github.com:tomorrownull/manage_notification_system.git HEAD as deploy@dcpns.diningcity.asia
+ DEBUG [b8243587] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-manage_notification_system-production-marketing1.sh" ; /usr/bin/env git ls-remote git@github.com:tomorrownull/manage_notification_system.git HEAD )
+ DEBUG [b8243587] 	ed99c0820ccd3c7a4d79748a4cd3e134a2924b13	HEAD
+  INFO [b8243587] Finished in 2.899 seconds with exit status 0 (successful).
+  INFO [85037898] Running /usr/bin/env mkdir -p /home/deploy/manage_notification_system/shared /home/deploy/manage_notification_system/releases as deploy@dcpns.diningcity.asia
+ DEBUG [85037898] Command: /usr/bin/env mkdir -p /home/deploy/manage_notification_system/shared /home/deploy/manage_notification_system/releases
+  INFO [85037898] Finished in 0.196 seconds with exit status 0 (successful).
+  INFO [7689022f] Running /usr/bin/env mkdir -p /home/deploy/manage_notification_system/shared/log as deploy@dcpns.diningcity.asia
+ DEBUG [7689022f] Command: /usr/bin/env mkdir -p /home/deploy/manage_notification_system/shared/log
+  INFO [7689022f] Finished in 0.212 seconds with exit status 0 (successful).
+ DEBUG [05f146e5] Running [ -f /home/deploy/manage_notification_system/current/REVISION ] as deploy@dcpns.diningcity.asia
+ DEBUG [05f146e5] Command: [ -f /home/deploy/manage_notification_system/current/REVISION ]
+ DEBUG [05f146e5] Finished in 0.213 seconds with exit status 0 (successful).
+ DEBUG [04c529aa] Running /usr/bin/env cat /home/deploy/manage_notification_system/current/REVISION 2>/dev/null as deploy@dcpns.diningcity.asia
+ DEBUG [04c529aa] Command: /usr/bin/env cat /home/deploy/manage_notification_system/current/REVISION 2>/dev/null
+ DEBUG [04c529aa] 	8f1c5cef7b10ad11e18615824fb8c4637e31a7b0
+ DEBUG [04c529aa] Finished in 0.225 seconds with exit status 0 (successful).
+ DEBUG [c18dfac0] Running [ -f /home/deploy/manage_notification_system/repo/HEAD ] as deploy@dcpns.diningcity.asia
+ DEBUG [c18dfac0] Command: [ -f /home/deploy/manage_notification_system/repo/HEAD ]
+ DEBUG [c18dfac0] Finished in 0.201 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/deploy/manage_notification_system/repo
+ DEBUG [ff038463] Running if test ! -d /home/deploy/manage_notification_system/repo; then echo "Directory does not exist '/home/deploy/manage_notification_system/repo'" 1>&2; false; fi as deploy@dcpns.diningcity.asia
+ DEBUG [ff038463] Command: if test ! -d /home/deploy/manage_notification_system/repo; then echo "Directory does not exist '/home/deploy/manage_notification_system/repo'" 1>&2; false; fi
+ DEBUG [ff038463] Finished in 0.207 seconds with exit status 0 (successful).
+  INFO [c5b5dfd4] Running /usr/bin/env git remote set-url origin git@github.com:tomorrownull/manage_notification_system.git as deploy@dcpns.diningcity.asia
+ DEBUG [c5b5dfd4] Command: cd /home/deploy/manage_notification_system/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-manage_notification_system-production-marketing1.sh" ; /usr/bin/env git remote set-url origin git@github.com:tomorrownull/manage_notification_system.git )
+  INFO [c5b5dfd4] Finished in 0.256 seconds with exit status 0 (successful).
+  INFO [0f587e02] Running /usr/bin/env git remote update --prune as deploy@dcpns.diningcity.asia
+ DEBUG [0f587e02] Command: cd /home/deploy/manage_notification_system/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-manage_notification_system-production-marketing1.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [0f587e02] 	Fetching origin
+ DEBUG [0f587e02] 	From github.com:tomorrownull/manage_notification_system
+   8f1c5ce..ed99c08  master     -> master
+  INFO [0f587e02] Finished in 6.895 seconds with exit status 0 (successful).
+ DEBUG [ae761bb1] Running if test ! -d /home/deploy/manage_notification_system/repo; then echo "Directory does not exist '/home/deploy/manage_notification_system/repo'" 1>&2; false; fi as deploy@dcpns.diningcity.asia
+ DEBUG [ae761bb1] Command: if test ! -d /home/deploy/manage_notification_system/repo; then echo "Directory does not exist '/home/deploy/manage_notification_system/repo'" 1>&2; false; fi
+ DEBUG [ae761bb1] Finished in 0.346 seconds with exit status 0 (successful).
+  INFO [d8be8484] Running /usr/bin/env mkdir -p /home/deploy/manage_notification_system/releases/20170929060423 as deploy@dcpns.diningcity.asia
+ DEBUG [d8be8484] Command: cd /home/deploy/manage_notification_system/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-manage_notification_system-production-marketing1.sh" ; /usr/bin/env mkdir -p /home/deploy/manage_notification_system/releases/20170929060423 )
+  INFO [d8be8484] Finished in 0.294 seconds with exit status 0 (successful).
+  INFO [9675b995] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /home/deploy/manage_notification_system/releases/20170929060423 as deploy@dcpns.diningcity.asia
+ DEBUG [9675b995] Command: cd /home/deploy/manage_notification_system/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-manage_notification_system-production-marketing1.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /home/deploy/manage_notification_system/releases/20170929060423 )
+  INFO [9675b995] Finished in 0.327 seconds with exit status 0 (successful).
+ DEBUG [3b89a3d8] Running if test ! -d /home/deploy/manage_notification_system/repo; then echo "Directory does not exist '/home/deploy/manage_notification_system/repo'" 1>&2; false; fi as deploy@dcpns.diningcity.asia
+ DEBUG [3b89a3d8] Command: if test ! -d /home/deploy/manage_notification_system/repo; then echo "Directory does not exist '/home/deploy/manage_notification_system/repo'" 1>&2; false; fi
+ DEBUG [3b89a3d8] Finished in 0.259 seconds with exit status 0 (successful).
+ DEBUG [f9cca378] Running /usr/bin/env git rev-list --max-count=1 master as deploy@dcpns.diningcity.asia
+ DEBUG [f9cca378] Command: cd /home/deploy/manage_notification_system/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-manage_notification_system-production-marketing1.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [f9cca378] 	ed99c0820ccd3c7a4d79748a4cd3e134a2924b13
+ DEBUG [f9cca378] Finished in 0.349 seconds with exit status 0 (successful).
+ DEBUG [2000f820] Running if test ! -d /home/deploy/manage_notification_system/releases/20170929060423; then echo "Directory does not exist '/home/deploy/manage_notification_system/releases/20170929060423'" 1>&2; false; fi as deploy@dcpns.diningcity.asia
+ DEBUG [2000f820] Command: if test ! -d /home/deploy/manage_notification_system/releases/20170929060423; then echo "Directory does not exist '/home/deploy/manage_notification_system/releases/20170929060423'" 1>&2; false; fi
+ DEBUG [2000f820] Finished in 0.253 seconds with exit status 0 (successful).
+  INFO [45ffaf43] Running /usr/bin/env echo "ed99c0820ccd3c7a4d79748a4cd3e134a2924b13" >> REVISION as deploy@dcpns.diningcity.asia
+ DEBUG [45ffaf43] Command: cd /home/deploy/manage_notification_system/releases/20170929060423 && /usr/bin/env echo "ed99c0820ccd3c7a4d79748a4cd3e134a2924b13" >> REVISION
+  INFO [45ffaf43] Finished in 0.355 seconds with exit status 0 (successful).
+  INFO [c948274d] Running /usr/bin/env mkdir -p /home/deploy/manage_notification_system/releases/20170929060423 as deploy@dcpns.diningcity.asia
+ DEBUG [c948274d] Command: /usr/bin/env mkdir -p /home/deploy/manage_notification_system/releases/20170929060423
+  INFO [c948274d] Finished in 0.304 seconds with exit status 0 (successful).
+ DEBUG [d427b5cf] Running [ -L /home/deploy/manage_notification_system/releases/20170929060423/log ] as deploy@dcpns.diningcity.asia
+ DEBUG [d427b5cf] Command: [ -L /home/deploy/manage_notification_system/releases/20170929060423/log ]
+ DEBUG [d427b5cf] Finished in 0.306 seconds with exit status 1 (failed).
+ DEBUG [8b5760d9] Running [ -d /home/deploy/manage_notification_system/releases/20170929060423/log ] as deploy@dcpns.diningcity.asia
+ DEBUG [8b5760d9] Command: [ -d /home/deploy/manage_notification_system/releases/20170929060423/log ]
+ DEBUG [8b5760d9] Finished in 0.307 seconds with exit status 0 (successful).
+  INFO [1f55626a] Running /usr/bin/env rm -rf /home/deploy/manage_notification_system/releases/20170929060423/log as deploy@dcpns.diningcity.asia
+ DEBUG [1f55626a] Command: /usr/bin/env rm -rf /home/deploy/manage_notification_system/releases/20170929060423/log
+  INFO [1f55626a] Finished in 0.316 seconds with exit status 0 (successful).
+  INFO [257de6b2] Running /usr/bin/env ln -s /home/deploy/manage_notification_system/shared/log /home/deploy/manage_notification_system/releases/20170929060423/log as deploy@dcpns.diningcity.asia
+ DEBUG [257de6b2] Command: /usr/bin/env ln -s /home/deploy/manage_notification_system/shared/log /home/deploy/manage_notification_system/releases/20170929060423/log
+  INFO [257de6b2] Finished in 0.288 seconds with exit status 0 (successful).
+  INFO [fb1a0080] Running /usr/bin/env ln -s /home/deploy/manage_notification_system/releases/20170929060423 /home/deploy/manage_notification_system/releases/current as deploy@dcpns.diningcity.asia
+ DEBUG [fb1a0080] Command: /usr/bin/env ln -s /home/deploy/manage_notification_system/releases/20170929060423 /home/deploy/manage_notification_system/releases/current
+  INFO [fb1a0080] Finished in 0.258 seconds with exit status 0 (successful).
+  INFO [4b0d448b] Running /usr/bin/env mv /home/deploy/manage_notification_system/releases/current /home/deploy/manage_notification_system as deploy@dcpns.diningcity.asia
+ DEBUG [4b0d448b] Command: /usr/bin/env mv /home/deploy/manage_notification_system/releases/current /home/deploy/manage_notification_system
+  INFO [4b0d448b] Finished in 0.353 seconds with exit status 0 (successful).
+ DEBUG [8f754d82] Running /usr/bin/env ls -x /home/deploy/manage_notification_system/releases as deploy@dcpns.diningcity.asia
+ DEBUG [8f754d82] Command: /usr/bin/env ls -x /home/deploy/manage_notification_system/releases
+ DEBUG [8f754d82] 	20170929025757	20170929030647	20170929060423
+ DEBUG [8f754d82] Finished in 0.226 seconds with exit status 0 (successful).
+ DEBUG [719ea3f4] Running if test ! -d /home/deploy/manage_notification_system/releases; then echo "Directory does not exist '/home/deploy/manage_notification_system/releases'" 1>&2; false; fi as deploy@dcpns.diningcity.asia
+ DEBUG [719ea3f4] Command: if test ! -d /home/deploy/manage_notification_system/releases; then echo "Directory does not exist '/home/deploy/manage_notification_system/releases'" 1>&2; false; fi
+ DEBUG [719ea3f4] Finished in 0.265 seconds with exit status 0 (successful).
+  INFO [edd4d727] Running /usr/bin/env echo "Branch master (at ed99c0820ccd3c7a4d79748a4cd3e134a2924b13) deployed as release 20170929060423 by marketing1" >> /home/deploy/manage_notification_system/revisions.log as deploy@dcpns.diningcity.asia
+ DEBUG [edd4d727] Command: cd /home/deploy/manage_notification_system/releases && /usr/bin/env echo "Branch master (at ed99c0820ccd3c7a4d79748a4cd3e134a2924b13) deployed as release 20170929060423 by marketing1" >> /home/deploy/manage_notification_system/revisions.log
+  INFO [edd4d727] Finished in 0.330 seconds with exit status 0 (successful).
