@@ -15,7 +15,7 @@
       </thead>
       <tbody>
         <tr v-for='item in schedules'>
-          <td>{{item.text}}</td>
+          <td>[{{item.channel}}]&nbsp;{{item.text}}</td>
           <td class="col-md-3">{{item.scheduled_at}}</td>
           <td class="col-md-3" style="word-break: break-all;">{{item.condition}}</td>
           <td class="col-md-2">{{item.operator}}</td>
