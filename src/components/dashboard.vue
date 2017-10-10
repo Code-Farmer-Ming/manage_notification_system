@@ -40,7 +40,7 @@
       </thead>
       <tbody>
         <tr v-for='item in recents'>
-          <td>{{item.text}}</td>
+          <td>[{{item.channel}}]&nbsp;{{item.text}}</td>
           <td class="col-md-3">{{item.send_at}}</td>
           <td class="col-md-3" style="word-break: break-all;">{{item.condition}}</td>
           <td class="col-md-2">{{item.operator}}</td>
