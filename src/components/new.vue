@@ -56,6 +56,7 @@ export default {
       this.msg = {
         text: '',
         link: '',
+        title: 'DiningCity',
         scheduled_at: null,
         channel: 'app',
         condition: {

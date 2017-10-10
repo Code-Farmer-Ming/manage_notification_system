@@ -84,7 +84,7 @@
       <label for="">To</label> {{msg.condition.member_ids}}
     </p>
     <p>
-      <label for="">Title</label>&nbsp;{{msg.title || 'Diningcity'}}
+      <label for="">Title</label>&nbsp;{{msg.title}}
     </p>
     <p>
       <label for="">Text</label>&nbsp;{{msg.text}}

@@ -115,7 +115,7 @@
       <label for="">Language</label> {{msg.condition.language}}
     </p>
     <p>
-      <label for="">Title</label>&nbsp;{{msg.title || 'Diningcity'}}
+      <label for="">Title</label>&nbsp;{{msg.title}}
     </p>
     <p>
       <label for="">Text</label>&nbsp;{{msg.text}}
