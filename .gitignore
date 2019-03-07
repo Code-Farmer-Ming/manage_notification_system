@@ -6,3 +6,5 @@ test/e2e/reports
 selenium-debug.log
 log/*
 /log
+.history
+.idea
