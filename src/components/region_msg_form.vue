@@ -143,7 +143,7 @@ export default {
         'suzhou', 'chongqing', 'xiamen', 'qingdao', 'wuhan', 'xi\'an', 'zhengzhou', 'hongkong',
         'bangkok', 'macau', 'pattaya', 'phuket', 'chiangmai', 'huahin', 'kohsamui'
       ],
-      levels: ['basic', 'jade', 'gold', 'diamond'],
+      levels: ['diamond','gold','jade','basic'],
       languages: ['en', 'zh', 'th'],
       linkTemplates: ['', '/sites/wee', '/sites/event'],
       send_to: 'regions',
