@@ -149,6 +149,10 @@
         {{msg.condition.cities}}
       </p>
       <p>
+        <label for>Member Type</label>
+        {{msg.condition.member_type}}
+      </p>
+      <p v-if="msg.condition.member_type=='member'">
         <label for>Level</label>
         {{msg.condition.levels}}
       </p>
@@ -169,10 +173,6 @@
         {{msg.link}}
       </p>
 
-      <p>
-        <label for>Type</label>
-        &nbsp;{{msg.type}}
-      </p>
       <p v-show="msg.scheduled_at">
         <label for>schedule</label>
         {{msg.scheduled_at}}
@@ -228,6 +228,12 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 </style>
+
+
+
+
+
+
 
 
 
