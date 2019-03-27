@@ -50,7 +50,7 @@ export default {
       })
     },
     regionSave () {
-      this.$http.post('', this.get_msg).then((response) => {
+      this.$http.post('http://apns.diningcity.asia/msgs/regions', this.get_msg).then((response) => {
         this.send_status = 'success'
         this.resetData()
       }, (error) => {
